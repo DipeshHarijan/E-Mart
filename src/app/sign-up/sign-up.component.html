@@ -1,0 +1,27 @@
+<section class="container">
+    <form class="form" #f="ngForm">
+        <div>
+            <legend>Sign Up</legend>
+            <label>First Name</label>
+            <input type="text" name="fnm" [(ngModel)]="user.firstName" class="form-control"
+            required="required" minlength="3">
+        </div>
+        <div>
+            <label>Last Name</label>
+            <input type="text" name="lnm" [(ngModel)]="user.lastName" class="form-control"/>
+        </div>
+        <div>
+            <label>E-Mail Id</label>
+            <input type="text" name="eid" [(ngModel)]="user.emailId" class="form-control"
+            [readonly]="!isNew" required="required" minlength="8" #eid="ngModel"/>
+        </div>
+        <div>
+            <label>Mobile Number</label>
+            <input type="text" name="mno" [(ngModel)]="user.mobileNumber" class="form-control"/>
+        </div>
+        <div>
+            <label>Password</label>
+            <input type="text" name="pwd" [(ngModel)]="user.password" class="form-control"/>
+        </div>
+    </form>
+</section>
