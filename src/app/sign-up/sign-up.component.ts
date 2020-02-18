@@ -12,6 +12,7 @@ export class SignUpComponent implements OnInit {
 
   private user:User;
   private isNew:boolean;
+  private password2: string;
 
   constructor(
     private userServ:UserService,
@@ -20,28 +21,35 @@ export class SignUpComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.routeData.params.subscribe(
-      (params)=>{
-        let userId= params['eid'];
+  }
 
-        if(userId=undefined){
-          this.isNew=true;
-          this.user=new User();
-        }else{
-          this.user=this.userServ.get(userId);
-          this.isNew=false;
-        }
-      }
-    );
+  verifyPassword():boolean {
+    if(this.user.password==''){
+      alert("Please enter password")
+      return false;
+    }
+    else if(this.password2==''){
+      alert("Re-enter password");
+      return false;
+    }
+    else if(this.user.password!=this.password2){
+      alert("Password did not match. Please try again.");
+      return false;
+    }
+    else{
+      alert("Account Created")
+      return true;
+    }
+  //    alert("This is verifyPassword");
   }
 
   save(){
-    if(this.isNew){
+    if(this.verifyPassword()){
       this.userServ.add(this.user);
     }else{
       this.userServ.update(this.user);
     }
-    this.router.navigateByUrl("/userList");
+    this.router.navigateByUrl("/login");
+    //alert("This is save");
   }
-
 }
