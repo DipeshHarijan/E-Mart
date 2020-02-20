@@ -12,6 +12,7 @@ import { ItemsListComponent } from './items-list/items-list.component';
 import { ItemDetailsComponent } from './item-details/item-details.component';
 import { ItemFormComponent } from './item-form/item-form.component';
 import { UserListComponent } from './user-list/user-list.component';
+import { CartComponent } from './cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { UserListComponent } from './user-list/user-list.component';
     ItemsListComponent,
     ItemDetailsComponent,
     ItemFormComponent,
-    UserListComponent
+    UserListComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,

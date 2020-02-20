@@ -1,18 +1,18 @@
 <section class="container col-md-8 bg-light mt-3">
-    <form class="form">
+    <form class="form" onsubmit="return verifyPassword()">
         <div>
             <legend>Sign Up</legend>
             <label>First Name</label>
-            <input type="text" [(ngModel)]="user.firstName" class="form-control"
+            <input type="text" [(ngModel)]="user.firstName" pattern="[A-Z]{1}[A-Za-z\s]{2,19}" class="form-control"
             required="required" minlength="3">
         </div>
         <div>
             <label>Last Name</label>
-            <input type="text" [(ngModel)]="user.lastName" class="form-control"/>
+            <input type="text" [(ngModel)]="user.lastName" pattern="[A-Z]{1}[A-Za-z\s]{2,19}" class="form-control"/>
         </div>
         <div>
             <label>E-Mail Id</label>
-            <input type="text" [(ngModel)]="user.emailId" class="form-control" required="required" minlength="8"/>
+            <input type="email" [(ngModel)]="user.emailId" class="form-control" required="required" minlength="8"/>
         </div>
         <div>
             <label>Mobile Number</label>
@@ -27,7 +27,7 @@
             <input type="password" [(ngModel)]="password2" class="form-control"/>
         </div>
         <div>
-            <button type="button" class="btn btn-primary mt-2" (click)="save()">Submit</button>
+            <button type="submit" class="btn btn-primary mt-2">Submit</button>
         </div>
     </form>
 </section>
